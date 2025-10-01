@@ -218,7 +218,7 @@ def main():
 
         elif action == "5":
             if len(parts) < 2:
-                print("Usage: search <query>")
+                print("Usage: 5 <query>")
                 continue
             q = " ".join(parts[1:])
             res = lib.find_books(q)
@@ -230,11 +230,12 @@ def main():
 
         elif action == "6":
             if len(parts) < 3:
-                print("Usage: borrow <user_id> <book_id> [days]")
+                print("Usage: 6 <user_id> <book_id> [days]")
                 continue
             try:
-                uid = int(parts[1]); bid = int(parts[2])
-                days = int(parts[3]) if len(parts) > 3 else 14
+                uid = int(parts[1])
+                bid = int(parts[2])
+                days = int(parts[3]) if len(parts) > 3 else 3
             except ValueError:
                 print("user_id, book_id and days must be integers.")
                 continue
@@ -242,10 +243,11 @@ def main():
 
         elif action == "7":
             if len(parts) < 3:
-                print("Usage: return <user_id> <book_id>")
+                print("Usage: 7 <user_id> <book_id>")
                 continue
             try:
-                uid = int(parts[1]); bid = int(parts[2])
+                uid = int(parts[1])
+                bid = int(parts[2])
             except ValueError:
                 print("user_id and book_id must be integers.")
                 continue
